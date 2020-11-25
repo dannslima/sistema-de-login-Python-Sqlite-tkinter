@@ -2,6 +2,9 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
+import DataBaser
+
+
 
 #criar Nossa Janela
 jan=Tk()
@@ -48,13 +51,13 @@ def Register():
     NomeLabel = Label(RIGHTFrame, text='Nome', font=('Century Gothic',20), bg='MIDNIGHTBLUE', fg='white')
     NomeLabel.place(x=5,y=5)
 
-    NomeEntry = Entry(RIGHTFrame, width=42)
+    NomeEntry = ttk.Entry(RIGHTFrame, width=42)
     NomeEntry.place(x=100, y=16)
 
     EmailLabel = Label(RIGHTFrame, text='Email', font=('Century Gothic',20), bg="MIDNIGHTBLUE", fg='white')
     EmailLabel.place(x=5,y=45)
 
-    EmailEntry = Entry(RIGHTFrame, width=42)
+    EmailEntry = ttk.Entry(RIGHTFrame, width=42)
     EmailEntry.place(x=100,y=55)
 
     def Voltar():
@@ -69,6 +72,10 @@ def Register():
         LoginButton.place(x=105)
         RegisterButton.place(x=105)
 
+    def RegisterToDataBase():
+        DataBaser.cursor.execute("""
+        INSERT INTO USERS ()
+        """)
 
     SalvarButton = ttk.Button(RIGHTFrame, text='Salvar', width=20)
     SalvarButton.place(x=105,y=240)
@@ -76,13 +83,8 @@ def Register():
     VoltarButton = ttk.Button(RIGHTFrame, text='Voltar', width=20,command=Voltar )
     VoltarButton.place(x=105, y=200)
 
-RegisterButton = ttk.Button(RIGHTFrame, text='Cadastrar', width=20,command=Register)
+RegisterButton = ttk.Button(RIGHTFrame, text='Cadastrar', width=20,command=RegisterToDataBase)
 RegisterButton.place(x=105,y=240)
-
-
-
-
-
 
 
 jan.mainloop()
