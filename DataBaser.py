@@ -9,8 +9,9 @@ cursor.execute("""
         Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         Name TEXT NOT NULL,
         Email TEXT NOT NULL,
-        User TEXT NOT NULL,
+        User TEXT NOT NULL UNIQUE,
         Password TEXT NOT NULL
     );
 """)
 print('CONECTADO AO BANCO DE DADOS')
+
